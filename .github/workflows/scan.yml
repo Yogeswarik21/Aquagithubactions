@@ -45,3 +45,8 @@ jobs:
           image-ref: 'docker.io/yogesh2196/aquagithubimage:${{ github.sha }}'
           format: 'sarif'
           output: 'trivy-results.sarif'
+          
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'trivy-results.sarif'

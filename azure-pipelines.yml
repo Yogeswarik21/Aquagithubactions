@@ -16,6 +16,10 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: '**/Dockerfile'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'docker login registry.aquasec.com -u yogeswari.kumarasamy@accenture.com -p Aqua@2021'
 - task: aquasecScanner@4
   inputs:
     image: 'pipelines-javascript-docker'

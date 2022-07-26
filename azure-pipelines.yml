@@ -11,6 +11,12 @@ pool:
 
 variables:
   imageName: 'pipelines-javascript-docker'
+  - group : 'aquacredentials'
+  - name : aquausername
+    value : $[variables.aquausername]
+  - name : aquapassword
+    value : $[variables.aquapassword]
+
 steps:
 - task: Docker@2
   inputs:
@@ -20,7 +26,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      docker login registry.aquasec.com -u yogeswari.kumarasamy@accenture.com -p Aqua@2021
+      docker login registry.aquasec.com -u $aquausername -p $aquapassword
       docker pull registry.aquasec.com/scanner:6.3
 - task: aquasecScanner@4
   inputs:

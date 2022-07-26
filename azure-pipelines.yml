@@ -10,12 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  imageName: 'pipelines-javascript-docker'
-  - group : 'aquacredentials'
-  - name : aquausername
-    value : $[variables.aquausername]
-  - name : aquapassword
-    value : $[variables.aquapassword]
+ - name : imagename
+   value : 'pipelines-javascript-docker'
+ - group : "aquacredentials"
+ - name : aquausername
+   value : $[variables.aquausername]
+ - name : aquapassword
+   value : $[variables.aquapassword]
 
 steps:
 - task: Docker@2

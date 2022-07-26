@@ -18,4 +18,4 @@ steps:
           inputs:
             repository: $(imageName)
             command: build
-            Dockerfile: app/Dockerfile
+            Dockerfile: /home/vsts/work/1/s/app/Dockerfile

@@ -16,3 +16,13 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: '**/Dockerfile'
+- task: aquasecScanner@4
+  inputs:
+    image: 'pipelines-javascript-docker'
+    scanType: 'local'
+    register: false
+    hideBase: false
+    showNegligible: false
+    windowsScannerVersion: '6.5.0'
+    scanner: 'registry.aquasec.com/scanner:6.3'
+    connection: 'aqua_server_connection'
